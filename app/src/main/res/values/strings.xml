@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Proyecto final</string>
+    <string name="mis_tareas">Mis tareas</string>
+    <string name="sin_tareas">No hay tareas registradas</string>
+    <string name="editar">Editar</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="cancelar">Cancelar</string>
+</resources>

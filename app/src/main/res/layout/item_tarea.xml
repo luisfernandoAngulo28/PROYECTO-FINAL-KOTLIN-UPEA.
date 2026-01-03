@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="7dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp">
+        <View
+            android:id="@+id/indicadorPrioridad"
+            android:layout_width="5dp"
+            android:layout_height="0dp"
+            android:background="@color/prioridad_alta"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+        <TextView
+            android:id="@+id/textoNombreTarea"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/texto_principal"
+            android:text="@string/app_name"
+            android:layout_marginStart="12dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/indicadorPrioridad"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/textoNivelPrioridad"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/texto_secundario"
+            android:text="Prioridad: Alta"
+            android:layout_marginStart="12dp"
+            app:layout_constraintTop_toBottomOf="@+id/textoNombreTarea"
+            app:layout_constraintStart_toEndOf="@+id/indicadorPrioridad"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/textoFechaCreacion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@color/texto_secundario"
+            android:text="Creado: 01/01/1966"
+            android:layout_marginStart="12dp"
+            app:layout_constraintTop_toBottomOf="@+id/textoNivelPrioridad"
+            app:layout_constraintStart_toEndOf="@+id/indicadorPrioridad"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/textoFechaRecordatorio"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@color/texto_secundario"
+            android:text="Recordatorio: 01/01/1966"
+            android:layout_marginStart="12dp"
+            app:layout_constraintTop_toBottomOf="@+id/textoFechaCreacion"
+            app:layout_constraintStart_toEndOf="@+id/indicadorPrioridad"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <LinearLayout
+            android:id="@+id/contenedorBotones"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end"
+            app:layout_constraintTop_toBottomOf="@+id/textoFechaRecordatorio"
+            app:layout_constraintStart_toEndOf="@+id/indicadorPrioridad"
+            app:layout_constraintEnd_toEndOf="parent">
+            <Button
+                android:id="@+id/botonEditar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/editar"
+                android:textSize="12sp"
+                android:paddingEnd="16dp"
+                android:paddingStart="16dp"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@color/boton_editar"/>
+            <Button
+                android:id="@+id/botonEliminar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/eliminar"
+                android:textSize="12sp"
+                android:paddingEnd="16dp"
+                android:paddingStart="16dp"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@color/boton_eliminar"/>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

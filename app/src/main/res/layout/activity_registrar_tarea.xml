@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/tituloActividad"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Nueva Tarea"
+            android:textColor="@color/texto_principal"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/etiquetaNombre"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Nombre de la tarea"
+            android:textColor="@color/texto_principal"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tituloActividad" />
+
+        <EditText
+            android:id="@+id/campoNombreTarea"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Ej: Programar Rust"
+            android:inputType="text"
+            android:maxLines="1"
+            android:padding="14dp"
+            android:textColor="@color/texto_principal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etiquetaNombre" />
+
+        <TextView
+            android:id="@+id/etiquetaNivelPrioridad"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingTop="24dp"
+            android:text="Nivel de prioridad"
+            android:textColor="@color/texto_principal"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/campoNombreTarea" />
+
+        <RadioGroup
+            android:id="@+id/grupoNivel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etiquetaNivelPrioridad">
+
+            <RadioButton
+                android:id="@+id/radioNivelBajo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="Baja" />
+
+            <RadioButton
+                android:id="@+id/radioNivelMedio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="Media" />
+
+            <RadioButton
+                android:id="@+id/radioNivelAlto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="Alto" />
+        </RadioGroup>
+
+
+        <TextView
+            android:id="@+id/etiquetaFechaCreacion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Fecha de creación"
+            android:textColor="@color/texto_principal"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/grupoNivel" />
+
+        <TextView
+            android:id="@+id/textoFechaCreacion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="01/01/1996"
+            android:textColor="@color/texto_secundario"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etiquetaFechaCreacion" />
+
+        <TextView
+            android:id="@+id/etiquetaFechaRecoradatorio"
+            android:layout_width="382dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Fecha recordatorio"
+            android:textColor="@color/texto_principal"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@+id/textoFechaCreacion" />
+
+        <LinearLayout
+            android:id="@+id/contenedorFechaRecordatorio"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etiquetaFechaRecoradatorio">
+
+            <TextView
+                android:id="@+id/textoFechaRecordatorio"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="12dp"
+                android:text="Fecha recordatorio"
+                android:textColor="@color/texto_secundario"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/botonSeleccionarFecha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:backgroundTint="@color/boton_secundario"
+                android:text="Seleccionar" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/botonGuardar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="158dp"
+            android:backgroundTint="@color/boton_principal"
+            android:padding="4dp"
+            android:text="Guardar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/botonCancelar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contenedorFechaRecordatorio" />
+
+        <Button
+            android:id="@+id/botonCancelar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="120dp"
+            android:text="Cancelar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/botonGuardar"
+            app:layout_constraintTop_toBottomOf="@+id/contenedorFechaRecordatorio" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
