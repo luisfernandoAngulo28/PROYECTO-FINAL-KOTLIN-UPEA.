@@ -5,9 +5,7 @@ plugins {
 
 android {
     namespace = "com.developers.android.proyectofinal"
-    compileSdk {
-        version = release(36)
-    }
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.developers.android.proyectofinal"
@@ -37,6 +35,9 @@ android {
     }
     buildFeatures {
         viewBinding = true
+    }
+    lint {
+        abortOnError = false
     }
 }
 

@@ -4,181 +4,281 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:background="#F5F5F5">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="15dp">
-
-        <TextView
-            android:id="@+id/tituloActividad"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Nueva Tarea"
-            android:textColor="@color/texto_principal"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/etiquetaNombre"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Nombre de la tarea"
-            android:textColor="@color/texto_principal"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tituloActividad" />
-
-        <EditText
-            android:id="@+id/campoNombreTarea"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="Ej: Programar Rust"
-            android:inputType="text"
-            android:maxLines="1"
-            android:padding="14dp"
-            android:textColor="@color/texto_principal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etiquetaNombre" />
-
-        <TextView
-            android:id="@+id/etiquetaNivelPrioridad"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:paddingTop="24dp"
-            android:text="Nivel de prioridad"
-            android:textColor="@color/texto_principal"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/campoNombreTarea" />
-
-        <RadioGroup
-            android:id="@+id/grupoNivel"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etiquetaNivelPrioridad">
-
-            <RadioButton
-                android:id="@+id/radioNivelBajo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:text="Baja" />
-
-            <RadioButton
-                android:id="@+id/radioNivelMedio"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:text="Media" />
-
-            <RadioButton
-                android:id="@+id/radioNivelAlto"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:text="Alto" />
-        </RadioGroup>
-
-
-        <TextView
-            android:id="@+id/etiquetaFechaCreacion"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="Fecha de creación"
-            android:textColor="@color/texto_principal"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/grupoNivel" />
-
-        <TextView
-            android:id="@+id/textoFechaCreacion"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="01/01/1996"
-            android:textColor="@color/texto_secundario"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etiquetaFechaCreacion" />
-
-        <TextView
-            android:id="@+id/etiquetaFechaRecoradatorio"
-            android:layout_width="382dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="Fecha recordatorio"
-            android:textColor="@color/texto_principal"
-            android:textSize="16sp"
-            app:layout_constraintTop_toBottomOf="@+id/textoFechaCreacion" />
+        android:layout_height="wrap_content">
 
         <LinearLayout
-            android:id="@+id/contenedorFechaRecordatorio"
+            android:id="@+id/headerLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:background="@color/purple_500"
             android:orientation="horizontal"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingTop="60dp"
+            android:paddingBottom="20dp"
+            android:elevation="4dp"
+            android:gravity="center_vertical"
+            android:clickable="false"
+            android:focusable="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etiquetaFechaRecoradatorio">
-
+            app:layout_constraintTop_toTopOf="parent">
+            
+            <Button
+                android:id="@+id/botonRegresar"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:text="✕"
+                android:textColor="@color/white"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                android:backgroundTint="#55FFFFFF"
+                android:padding="8dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"
+                app:cornerRadius="28dp"
+                android:contentDescription="Regresar"/>
+            
             <TextView
-                android:id="@+id/textoFechaRecordatorio"
+                android:id="@+id/tituloActividad"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:padding="12dp"
-                android:text="Fecha recordatorio"
-                android:textColor="@color/texto_secundario"
-                android:textSize="14sp" />
-
-            <Button
-                android:id="@+id/botonSeleccionarFecha"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:backgroundTint="@color/boton_secundario"
-                android:text="Seleccionar" />
+                android:text="Nueva Tarea"
+                android:textColor="@color/white"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:layout_marginStart="12dp"/>
         </LinearLayout>
 
-        <Button
-            android:id="@+id/botonGuardar"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardNombre"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="158dp"
-            android:backgroundTint="@color/boton_principal"
-            android:padding="4dp"
-            android:text="Guardar"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/botonCancelar"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/contenedorFechaRecordatorio" />
-
-        <Button
-            android:id="@+id/botonCancelar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="120dp"
-            android:text="Cancelar"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="20dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/botonGuardar"
-            app:layout_constraintTop_toBottomOf="@+id/contenedorFechaRecordatorio" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/headerLayout">
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+                
+                <TextView
+                    android:id="@+id/etiquetaNombre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" Nombre de la tarea"
+                    android:textColor="@color/texto_principal"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp"/>
 
+                <EditText
+                    android:id="@+id/campoNombreTarea"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Ej: Programar Rust"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:padding="14dp"
+                    android:background="@android:drawable/editbox_background"
+                    android:textColor="@color/texto_principal"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardPrioridad"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="12dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardNombre">
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+                
+                <TextView
+                    android:id="@+id/etiquetaNivelPrioridad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" Nivel de prioridad"
+                    android:textColor="@color/texto_principal"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp"/>
+
+                <RadioGroup
+                    android:id="@+id/grupoNivel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/radioNivelBajo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="12dp"
+                        android:text="🟢 Prioridad Baja"
+                        android:textSize="15sp"/>
+
+                    <RadioButton
+                        android:id="@+id/radioNivelMedio"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="12dp"
+                        android:text="🟡 Prioridad Media"
+                        android:textSize="15sp"/>
+
+                    <RadioButton
+                        android:id="@+id/radioNivelAlto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="12dp"
+                        android:text="🔴 Prioridad Alta"
+                        android:textSize="15sp"/>
+                </RadioGroup>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardFechas"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="12dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardPrioridad">
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+                
+                <TextView
+                    android:id="@+id/etiquetaFechaCreacion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="📅 Fecha de creación"
+                    android:textColor="@color/texto_principal"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp"/>
+
+                <TextView
+                    android:id="@+id/textoFechaCreacion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="01/01/1996"
+                    android:textColor="@color/texto_secundario"
+                    android:textSize="15sp"
+                    android:layout_marginBottom="16dp"/>
+                
+                <TextView
+                    android:id="@+id/etiquetaFechaRecoradatorio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="⏰ Fecha recordatorio"
+                    android:textColor="@color/texto_principal"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp"/>
+
+                <LinearLayout
+                    android:id="@+id/contenedorFechaRecordatorio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/textoFechaRecordatorio"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="12dp"
+                        android:text="Seleccionar fecha"
+                        android:textColor="@color/texto_secundario"
+                        android:textSize="15sp"
+                        android:background="@android:drawable/editbox_background"/>
+
+                    <Button
+                        android:id="@+id/botonSeleccionarFecha"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="8dp"
+                        android:backgroundTint="@color/purple_500"
+                        android:text="📆 Seleccionar"
+                        android:textSize="13sp"
+                        app:cornerRadius="24dp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:id="@+id/contenedorBotones"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardFechas">
+
+            <Button
+                android:id="@+id/botonGuardar"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@color/boton_principal"
+                android:text="💾 Guardar"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:cornerRadius="28dp"/>
+
+            <Button
+                android:id="@+id/botonCancelar"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:backgroundTint="@color/purple_500"
+                android:text="❌ Cancelar"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:cornerRadius="28dp"/>
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

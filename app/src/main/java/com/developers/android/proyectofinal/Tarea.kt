@@ -27,5 +27,5 @@ data class Tarea(
 enum class NivelPrioridad(val texto: String, val colorRes: Int) {
     BAJO("Prioridad: Baja", R.color.prioridada_baja),
     MEDIO("Prioridad: Medio", R.color.prioridad_media),
-    ALTO("Prioridad: Alta", R.color.prioridada_baja),
+    ALTO("Prioridad: Alta", R.color.prioridad_alta),
 }

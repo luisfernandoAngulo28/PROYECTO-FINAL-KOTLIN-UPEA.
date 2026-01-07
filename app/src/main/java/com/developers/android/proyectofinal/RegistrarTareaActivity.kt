@@ -22,6 +22,10 @@ class RegistrarTareaActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityRegistrarTareaBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        
+        // Ocultar ActionBar nativo
+        supportActionBar?.hide()
+        
         tareaEditar = intent.getSerializableExtra("tarea") as? Tarea
         Log.d("ValoresFORM", tareaEditar.toString())
         posicionEditar = intent.getIntExtra("posicion", -1)
@@ -31,6 +35,10 @@ class RegistrarTareaActivity : AppCompatActivity() {
     }
 
     private fun configurarEventos() {
+        binding.botonRegresar.setOnClickListener { 
+            Log.d("RegistrarTarea", "Botón regresar clickeado")
+            finish() 
+        }
         binding.botonSeleccionarFecha.setOnClickListener { mostrarDatePicker() }
         binding.botonGuardar.setOnClickListener { guardarTarea() }
         binding.botonCancelar.setOnClickListener { finish() }

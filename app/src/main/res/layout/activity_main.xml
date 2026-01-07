@@ -5,18 +5,134 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tituloApp"
+    <LinearLayout
+        android:id="@+id/headerLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:text="@string/mis_tareas"
-        android:textColor="@color/texto_principal"
-        android:textSize="24sp"
-        android:textStyle="bold"
+        android:background="@color/purple_500"
+        android:orientation="vertical"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="60dp"
+        android:paddingBottom="20dp"
+        android:elevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+        
+        <TextView
+            android:id="@+id/tituloApp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/mis_tareas"
+            android:textColor="@color/white"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.02"
+            android:gravity="center" />
+    </LinearLayout>
+    
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardContador"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/headerLayout">
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+            
+            <TextView
+                android:id="@+id/textoContadorTareas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="0 pendientes, 0 completadas"
+                android:textColor="@color/texto_principal"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+    
+            <ProgressBar
+                android:id="@+id/progressBarTareas"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="12dp"
+                android:progress="0"
+                android:max="100"
+                android:progressTint="@color/purple_500"
+                android:progressBackgroundTint="#E0E0E0"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardSearch"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="12dp"
+        app:cardCornerRadius="25dp"
+        app:cardElevation="3dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardContador">
+        
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchViewTareas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:queryHint="🔍 Buscar tareas..."
+            android:iconifiedByDefault="false"/>
+    </androidx.cardview.widget.CardView>
+    
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroupFiltros"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="8dp"
+        app:singleSelection="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardSearch">
+        
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipTodas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📋 Todas"
+            android:checkable="true"
+            android:checked="true"
+            android:textColor="@color/white"
+            app:chipBackgroundColor="@color/purple_500"/>
+        
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipPendientes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="⏳ Pendientes"
+            android:checkable="true"
+            android:textColor="@color/texto_principal"/>
+        
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipCompletadas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="✓ Completadas"
+            android:checkable="true"
+            android:textColor="@color/texto_principal"/>
+    </com.google.android.material.chip.ChipGroup>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewTareas"
@@ -25,7 +141,7 @@
         android:padding="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tituloApp"
+        app:layout_constraintTop_toBottomOf="@+id/chipGroupFiltros"
         tools:listitem="@layout/item_tarea"/>
 
     <TextView
